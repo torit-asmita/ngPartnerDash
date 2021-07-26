@@ -1,0 +1,36 @@
+ <div class="col-md-6 offset-md-3 mt-5">
+            <div class="card">
+                <h2 class="card-header text-center">REGISTER</h2>
+                <div class="card-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="email_mobile">Enter Email Address/ Mobile Number:</label>
+                            <input type="text" formControlName="email_mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email_mobile.errors }" />
+                            <div *ngIf="submitted && f.email_mobile.errors" class="invalid-feedback">
+                                <div *ngIf="f.email_mobile.errors.required">Email address or mobile number is required</div>
+                                <span class="text-danger" *ngIf="registerForm.controls['email_mobile'].hasError('pattern') && (registerForm.controls['email_mobile'].dirty || registerForm.controls['email_mobile'].touched)">Please enter valid email address or phone number</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <button [disabled]="loading" class="btn btn-primary mt-3 w-100">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                          Register
+                        </button>
+                            <div class="text-center">
+                                <button (click)="reset_password()" class="reset_btn mt-3">Reset Password</button>
+                            </div>
+                        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    
+                       
+                    </form>
+                </div>
+            
+        </div>
+        </div>
+        

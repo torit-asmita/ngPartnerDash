@@ -1,16 +1,10 @@
-.card{
-    width: 600px;
-    display: block;
-    margin: auto;
-    margin-top: 2%;
-    
-}
+
 .card>h1{
     text-align: center;
     margin-top: 1%;
 }
 .button{
-    /* text-align: center; */
+    
     margin-top: 2%;
     display: block;
     margin: auto;

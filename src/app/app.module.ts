@@ -15,12 +15,14 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { fakeBackendProvider } from './helpers/fake_backened';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     SplashScreenComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
