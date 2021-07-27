@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthServiceService } from 'src/services/auth-service.service';
@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   error = '';
   msg:String="";
+  
   constructor(private authService:AuthServiceService , private router: Router,private formBuilder: FormBuilder,
     private route: ActivatedRoute) {
       this.registerForm = this.formBuilder.group({
@@ -48,5 +49,6 @@ reset_password()
   localStorage.setItem('email_mobile',this.f.email_mobile.value);
   localStorage.setItem('password',this.f.password.value);
 }
+
 
 }

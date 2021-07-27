@@ -16,13 +16,23 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { fakeBackendProvider } from './helpers/fake_backened';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { NbThemeModule,NbMenuModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbSidebarModule,NbButtonModule } from '@nebular/theme';
+import { MerchantsComponent } from './merchants/merchants.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
     SplashScreenComponent,
     DashboardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MerchantsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,15 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbButtonModule,
+    NbLayoutModule,
+    NbEvaIconsModule,
+    Ng2SmartTableModule,
+    MatIconModule
   ],
   providers: [AuthenticationGuard,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
   msg:String="";
+  toShowRegisterPage = false;
   constructor(private authService:AuthServiceService , private router: Router,private formBuilder: FormBuilder,
     private route: ActivatedRoute) {
       this.loginForm = this.formBuilder.group({
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
             next: () => {
                 // get return url from route parameters or default to '/'
                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigate([returnUrl]);
+                this.router.navigate(['dashboard']);
             },
             error: error => {
                 this.error = error;
@@ -52,5 +53,7 @@ export class LoginComponent implements OnInit {
             }
         });
 }
+
+
 
 }
